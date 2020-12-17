@@ -1,0 +1,43 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
+
+namespace WpfApp3
+{
+    /// <summary>
+    /// Lógica de interacción para MainWindow.xaml
+    /// </summary>
+    /// 
+
+    //Crear una DependencyProperty
+
+    public partial class MainWindow : Window
+    {
+        //1. crear la clase, especificar el tipo de dato, este ejemplo es de tipo int 
+        public int MiProperty
+        {
+            //3. establecer get 
+            get { return (int)GetValue(miDependencyProperty); }
+
+            set { SetValue(miDependencyProperty, value); }
+        }
+        //2. registrar la property
+        public static readonly DependencyProperty miDependencyProperty = DependencyProperty.Register("MiProperty", typeof(int), typeof(MainWindow), new PropertyMetadata(0));
+        public MainWindow()
+        {
+            InitializeComponent();
+
+        }
+    }
+}
